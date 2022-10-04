@@ -5,6 +5,7 @@ import "@nomiclabs/hardhat-waffle";
 import "@typechain/hardhat";
 import "hardhat-gas-reporter";
 import "solidity-coverage";
+require("hardhat-abi-exporter");
 
 dotenv.config();
 
@@ -69,6 +70,12 @@ const config: HardhatUserConfig = {
       polygonMumbai: process.env.BLOCK_EXPLORER_API_KEY,
     },
   },
+  abiExporter: [
+    {
+      path: "./abi/pretty",
+      format: "json",
+    },
+  ],
 };
 
 // Setup "testnet" network

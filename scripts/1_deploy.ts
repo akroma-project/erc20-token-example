@@ -1,17 +1,10 @@
+/* eslint-disable node/no-missing-import */
 import { ethers } from "hardhat";
 import { SampleToken } from "../typechain";
 
 async function main() {
-  // Hardhat always runs the compile task when running scripts with its command
-  // line interface.
-  //
-  // If this script is run directly using `node` you may want to call compile
-  // manually to make sure everything is compiled
-  // await hre.run('compile');
-
   console.log("Deploying contract...");
 
-  // We get the contract to deploy
   const Contract = await ethers.getContractFactory("SampleToken");
   const contract = (await Contract.deploy(1000)) as SampleToken;
 

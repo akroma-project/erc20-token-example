@@ -17,12 +17,12 @@ jobs:
         uses: actions/setup-node@v2
         with:
           cache: yarn
-          cache-dependency-path: smart-contract/yarn.lock
+          cache-dependency-path: yarn.lock
 
       - name: Yarn install
-        run: cd ./smart-contract && yarn install
+        run: yarn install
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Run tests
-        run: cd ./smart-contract && yarn test-extended
+        run: yarn test-extended
